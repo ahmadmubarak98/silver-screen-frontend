@@ -1,0 +1,84 @@
+.Appbar {
+  height: 55px;
+  background-color: var(--dark-grey);
+  color: #fff;
+  display: flex;
+  align-items: center;
+}
+
+.Logo {
+  height: 100%;
+  width: 125px;
+  background: var(--black);
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.AppbarWrapper {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  padding: 0 10px;
+}
+
+.BlackAppbarWrapper {
+  background-color: var(--black);
+}
+
+.AppbarButton {
+  margin-right: 15px;
+  display: flex;
+  align-items: center;
+  padding: 7px 10px;
+  font-size: 12px;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+}
+
+.AppbarButton:hover {
+  background-color: var(--mid-grey-2);
+}
+
+.AppbarButton.active {
+  background-color: var(--light-grey);
+  color: var(--dark-grey);
+}
+
+.AppbarIcon {
+  margin-right: 8px;
+}
+
+/*--------------
+AppBarMenuButton
+---------------*/
+
+.AppBarMenuButton {
+  background: transparent;
+  color: var(--white);
+}
+
+.AppBarMenuButton:hover {
+  background-color: var(--mid-grey-2);
+}
+
+.AppBarMenuButton.active {
+  background: var(--light-grey);
+  color: var(--black);
+}
+
+.AppBarMenuButton.active:hover {
+  background: var(--white);
+}
+
+
+/*--------------
+DepartmentsMenuOption
+---------------*/
+
+.DepartmentsMenuOption {
+  padding: 4px 15px;
+  font-size: 12px;
+}

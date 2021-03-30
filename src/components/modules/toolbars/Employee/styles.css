@@ -1,0 +1,136 @@
+.EmployeeToolbar {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 0px 0px;
+  grid-template-areas:
+    "upper-bar"
+    "lower-bar";
+
+  border-bottom: 1px solid var(--light-grey);
+}
+
+.upper-bar,
+.lower-bar {
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+  height: 50px;
+  overflow: hidden;
+}
+
+.upper-bar {
+  grid-area: upper-bar;
+  background-color: var(--off-white);
+}
+
+.lower-bar {
+  grid-area: lower-bar;
+  display: flex;
+}
+
+/*--------------
+LocationSortOption
+---------------*/
+
+.LocationSortOption {
+  display: flex;
+  align-items: center;
+  min-width: 300px;
+  padding: 0 15px;
+  margin: 14px 0 0 0;
+  justify-content: space-between;
+}
+
+.LocationSortOption:last-child {
+  margin: 10px 0 4px 0;
+}
+
+.LocationSortOptionLabel {
+  min-width: 100px;
+  margin-right: 10px;
+}
+
+/*--------------
+TableSortMenu
+---------------*/
+
+.TableSortMenu {
+  padding: 2px 2px 2px 16px;
+}
+
+/*--------------
+  EmployeeCount
+---------------*/
+
+.EmployeeCount {
+  margin-left: 8px;
+}
+
+.EmployeeCount:first-child {
+  margin-left: 0;
+}
+
+/*--------------
+SelectedEmployeeActions
+---------------*/
+
+.SelectedEmployeeActions {
+  display: flex;
+  align-items: center;
+}
+
+/*--------------
+   Buttons
+---------------*/
+
+.Button {
+  border-radius: 8px;
+  text-transform: initial;
+  margin-right: 5px;
+  padding: 7px 16px;
+  font-size: 12px;
+  background-color: var(--light-grey);
+}
+
+.Button:last-child {
+  margin-right: 0;
+}
+
+.BlackButton {
+  background-color: var(--black);
+  color: var(--white);
+}
+
+.BlackButton:hover {
+  background-color: var(--mid-grey-1);
+}
+
+.BlueButton {
+  background-color: var(--blue);
+  color: var(--white);
+}
+
+.BlueButton:hover {
+  background-color: var(--light-blue);
+}
+
+.IconButton {
+  padding: 6px 8px;
+}
+
+/*--------------
+ToolbarMenuTitle
+---------------*/
+
+.ToolbarMenuTitle {
+  color: var(--mid-grey-2);
+  text-transform: UPPERCASE;
+  padding: 4px 15px;
+  margin-top: 15px;
+  font-size: 12px;
+}
+
+.ToolbarMenuTitle:first-child {
+  margin-top: 0;
+}

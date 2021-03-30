@@ -1,0 +1,155 @@
+/* ===================== */
+/*        MARGINS        */
+/* ===================== */
+
+/* ---- Auto ---- */
+
+.mAuto {
+  margin: auto;
+}
+.mxAuto {
+  margin-left: auto;
+  margin-right: auto;
+}
+.myAuto {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+.mtAuto {
+  margin-top: auto;
+}
+.mlAuto {
+  margin-left: auto;
+}
+.mrAuto {
+  margin-right: auto;
+}
+.mbAuto {
+  margin-bottom: auto;
+}
+
+/* ---- XXS ---- */
+
+.mXxs {
+  margin: 4px;
+}
+.mtXxs {
+  margin-top: 4px;
+}
+.mlXxs {
+  margin-left: 4px;
+}
+.mrXxs {
+  margin-right: 4px;
+}
+.mbXxs {
+  margin-bottom: 4px;
+}
+
+/* ---- XS ---- */
+
+.mXs {
+  margin: 8px;
+}
+.mtXs {
+  margin-top: 8px;
+}
+.mlXs {
+  margin-left: 8px;
+}
+.mrXs {
+  margin-right: 8px;
+}
+.mbXs {
+  margin-bottom: 8px;
+}
+
+/* ---- SM ---- */
+
+.mSm {
+  margin: 12px;
+}
+.mtSm {
+  margin-top: 12px;
+}
+.mlSm {
+  margin-left: 12px;
+}
+.mrSm {
+  margin-right: 12px;
+}
+.mbSm {
+  margin-bottom: 12px;
+}
+
+/* ---- MD ---- */
+
+.mMd {
+  margin: 20px;
+}
+.mtMd {
+  margin-top: 20px;
+}
+.mlMd {
+  margin-left: 20px;
+}
+.mrMd {
+  margin-right: 20px;
+}
+.mbMd {
+  margin-bottom: 20px;
+}
+
+/* ---- LG ---- */
+
+.mLg {
+  margin: 32px;
+}
+.mtLg {
+  margin-top: 32px;
+}
+.mlLg {
+  margin-left: 32px;
+}
+.mrLg {
+  margin-right: 32px;
+}
+.mbLg {
+  margin-bottom: 32px;
+}
+
+/* ---- XL ---- */
+
+.mXl {
+  margin: 52px;
+}
+.mtXl {
+  margin-top: 52px;
+}
+.mlXl {
+  margin-left: 52px;
+}
+.mrXl {
+  margin-right: 52px;
+}
+.mbXl {
+  margin-bottom: 52px;
+}
+
+/* ---- XXL ---- */
+
+.mXxl {
+  margin: 84px;
+}
+.mtXxl {
+  margin-top: 84px;
+}
+.mlXxl {
+  margin-left: 84px;
+}
+.mrXxl {
+  margin-right: 84px;
+}
+.mbXxl {
+  margin-bottom: 84px;
+}

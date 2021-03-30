@@ -1,0 +1,21 @@
+.Dashboard {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  /* display: grid;
+  grid-template-columns: 50px 200px 1fr 1fr;
+  grid-template-rows: 50px 50px 1fr 1fr;
+  gap: 0px 0px;
+  grid-template-areas:
+    "appbar appbar appbar appbar"
+    "navbar tabbar tabbar tabbar"
+    "navbar sidebar container container"
+    "navbar sidebar container container"; */
+}
+
+.DashboardContainer {
+  display: flex;
+  flex-grow: 1;
+}

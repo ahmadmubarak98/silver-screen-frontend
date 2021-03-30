@@ -1,0 +1,27 @@
+.UserProfileMenu {
+  display: flex;
+  align-items: center;
+  margin: 0 0 0 15px;
+  background: transparent;
+  padding: 0;
+  color: white;
+}
+
+.UserProfileStatus {
+  border-width: 3px;
+  border-radius: 12px;
+  padding: 1px;
+  border-style: solid;
+  background-color: var(--black);
+  margin-right: 5px;
+}
+
+.UserProfileStatus.Active {
+  border-color: #20c764;
+}
+
+.UserProfileMenuAvatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+}

@@ -1,0 +1,40 @@
+{
+  "presets": ["react-app"],
+  "plugins": [
+    [
+      "babel-plugin-import",
+      {
+        "libraryName": "@material-ui/core",
+        "libraryDirectory": "",
+        "camel2DashComponentName": false
+      },
+      "core"
+    ],
+    [
+      "babel-plugin-import",
+      {
+        "libraryName": "@material-ui/icons",
+        "libraryDirectory": "",
+        "camel2DashComponentName": false
+      },
+      "icons"
+    ],
+    [
+      "module-resolver",
+      {
+        "root": ["./src"],
+        "alias": {
+          "~Atoms": "./src/components/atoms",
+          "~Modules": "./src/components/modules",
+          "~Constants": "./src/constants",
+          "~Routes": "./src/constants/routes.js",
+          "~Api": "./src/api",
+          "~Store": "./src/store",
+          "~Styles": "./src/styles",
+          "~Hooks": "./src/utils/hooks",
+          "~Utils": "./src/utils"
+        }
+      }
+    ]
+  ]
+}

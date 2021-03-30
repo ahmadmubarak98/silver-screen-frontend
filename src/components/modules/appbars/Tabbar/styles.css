@@ -1,0 +1,7 @@
+.Tabbar {
+  grid-area: tabbar;
+  background-color: var(--mid-grey-1);
+  color: var(--white);
+  display: flex;
+  align-items: center;
+}

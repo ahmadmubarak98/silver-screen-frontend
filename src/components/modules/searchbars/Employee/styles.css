@@ -1,0 +1,13 @@
+.EmployeeSearchbar {
+  background-color: var(--light-grey);
+  border-radius: 8px;
+}
+
+.EmployeeSearchbarInput {
+  padding: 6px 12px 7px;
+  max-width: 150px;
+}
+
+.EmployeeSearchbarIcon {
+  margin-right: 4px;
+}

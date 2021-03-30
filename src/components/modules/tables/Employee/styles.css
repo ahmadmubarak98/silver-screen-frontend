@@ -1,0 +1,48 @@
+.EmployeeTableContainer {
+  flex-grow: 1;
+  position: relative;
+}
+
+.EmployeeTable {
+  height: 100%;
+  width: 100%;
+}
+
+.EmployeeTableBody {
+  width: 100%;
+}
+
+.TableBodyContent {
+  display: block;
+  height: 100%;
+}
+
+.EmployeeTableRow {
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  width: 100%;
+  min-width: 100%;
+}
+
+.StripedEmployeeTableRow {
+  background-color: #f7f7f7;
+}
+
+.EmployeeTableCell {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  font-size: 12px !important;
+}
+
+.EmployeeTableCellCheckbox {
+  max-width: 50px;
+}
+
+.EmployeeTableCellAvatar {
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+}
+

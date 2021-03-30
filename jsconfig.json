@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "baseUrl": "src",
+    "paths": {
+      "~Atoms": ["components/atoms/index.js"],
+      "~Modules": ["components/modules/index.js"],
+      "~Constants": ["constants/index.js"],
+      "~Routes": ["constants/routes.js"],
+      "~Store": ["store/*"],
+      "~Api": ["api/index.js"],
+      "~Styles": ["styles/*"],
+      "~Utils": ["utils/index.js"],
+      "~Hooks": ["utils/hooks/index.js"]
+    }
+  },
+  "include": ["src"]
+}

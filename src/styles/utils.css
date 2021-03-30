@@ -1,0 +1,7 @@
+.Hidden {
+  display: none;
+}
+
+.Invisible {
+  opacity: 0;
+}

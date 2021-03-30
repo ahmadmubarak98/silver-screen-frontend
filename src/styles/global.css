@@ -1,0 +1,48 @@
+*,
+*:after,
+*:before {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 14px;
+}
+
+body {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-width: 320px;
+  min-height: 480px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+}
+
+#app {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+}
+
+/*--------------
+   Scrollbars
+---------------*/
+
+::-webkit-scrollbar {
+  width: 7px;
+  height: 0;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  box-shadow: rgba(255, 255, 255, 0.3) 0 0 0 1px;
+}
+:hover::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.45);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.55);
+}
