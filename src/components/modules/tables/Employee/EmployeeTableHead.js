@@ -64,7 +64,7 @@ const headCells = [
 const tableHeadDataSelector = ({ employee }) => [
   employee.employees,
   employee.list,
-  employee.selected.length,
+  Object.keys(employee.selected).length,
   employee.order,
   employee.orderBy,
 ];

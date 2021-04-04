@@ -1,68 +1,131 @@
-import React from "react";
-import cx from "clsx";
+import React, { useCallback, useState } from "react";
 
 // components
-import {
-  LinearProgress,
-  Table,
-  TableBody,
-  TableContainer,
-} from "@material-ui/core";
-import { FixedSizeList as List } from "react-window";
-import AutoSizer from "react-virtualized-auto-sizer";
-import EmployeeTableHead from "./EmployeeTableHead";
-import EmployeeTableRow from "./EmployeeTableRow";
+import { Table } from "~Atoms";
+import { Avatar } from "@material-ui/core";
 
 // redux
 import { useSelector } from "react-redux";
+import { employeeActions } from "~Store";
 
-const headerHeight = 45;
-const rowHeight = 70;
+// helpers
+import { useSelectionProps, sortTableColumns } from "~Atoms/grids/Table";
+
+import "./styles.css";
+
+const COLUMNS = [
+  {
+    id: "name",
+    header: "Name",
+    className: "AvatarTableCell",
+    renderer: (data) => (
+      <div className="AvatarCell">
+        <Avatar variant="rounded" src={data.imageUrl} className="Avatar" />
+        <div className="Content">{data.name}</div>
+      </div>
+    ),
+    fixed: true,
+    width: 250,
+    resizable: true,
+  },
+  {
+    id: "designation",
+    header: "Designation",
+    renderer: (data) => data.designation,
+    resizable: true,
+    width: 300,
+  },
+  {
+    id: "email",
+    header: "Email",
+    renderer: (data) => data.email,
+    resizable: true,
+    width: 350,
+  },
+  {
+    id: "phone",
+    header: "Phone",
+    renderer: (data) => data.phone,
+    resizable: true,
+    width: 200,
+  },
+  {
+    id: "group",
+    header: "Group",
+    renderer: (data) => data.group,
+    resizable: true,
+    width: 250,
+  },
+  {
+    id: "address",
+    header: "Address",
+    renderer: (data) => `${data.country} - ${data.city}`,
+    resizable: true,
+    width: 300,
+  },
+];
 
 const EmployeeTable = (props) => {
-  const { className, loading } = props;
+  const { loading } = props;
 
-  const [rowCount, originalRowCount] = useSelector(({ employee }) => [
-    employee.list.length,
-    employee.employees.length,
+  const [columns, setColumns] = useState(COLUMNS);
+  const [list, employees, selected] = useSelector(({ employee }) => [
+    employee.list,
+    employee.employees,
+    employee.selected,
   ]);
+
+  const totalRowCount = employees.length;
+
+  // ----------------------------------------
+  // Event handlers
+  // ----------------------------------------
+
+  const handleSortColumns = useCallback((sourceId, targetId) => {
+    setColumns((prevColumns) =>
+      sortTableColumns(prevColumns, sourceId, targetId)
+    );
+  }, []);
+
+  const handleUpdateColumns = useCallback((updatedColumns) => {
+    setColumns((prevColumns) =>
+      updatedColumns.reduce((acc, col) => {
+        if (!col.selected) return acc;
+        const matchingCol = prevColumns.find((c) => c.id === col.id) || {
+          id: col.id,
+          header: col.content,
+          dataKey: col.id.toLowerCase(),
+          resizable: true,
+          width: 300,
+        };
+        return [...acc, matchingCol];
+      }, [])
+    );
+  }, []);
 
   // ----------------------------------------
   // Render
   // ----------------------------------------
 
-  const classes = cx("EmployeeTableContainer", className);
+  const selectionProps = useSelectionProps(
+    list,
+    totalRowCount,
+    selected,
+    employeeActions.setSelected,
+    employeeActions.selectAll,
+    employeeActions.clearSelection
+  );
 
   return (
-    <TableContainer className={classes}>
-      <Table
-        className="EmployeeTable"
-        size="medium"
-        component="div"
-        aria-labelledby="tableTitle"
-        aria-label="accounts table"
-      >
-        <EmployeeTableHead height={headerHeight} rowCount={originalRowCount} />
-        <TableBody className="EmployeeTableBody" component="div">
-          {loading && <LinearProgress />}
-          <div className="TableBodyContent">
-            <AutoSizer>
-              {({ height, width }) => (
-                <List
-                  itemCount={rowCount}
-                  itemSize={rowHeight}
-                  height={height}
-                  width={width}
-                  overscanCount={10}
-                >
-                  {EmployeeTableRow}
-                </List>
-              )}
-            </AutoSizer>
-          </div>
-        </TableBody>
-      </Table>
-    </TableContainer>
+    <Table
+      loading={loading}
+      data={list}
+      columns={columns}
+      selectionProps={selectionProps}
+      settingsProps={{}}
+      onUpdateColumns={handleUpdateColumns}
+      onSortColumns={handleSortColumns}
+    />
   );
 };
 

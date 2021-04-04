@@ -42,6 +42,9 @@ const EmployeeTableRowActions = (props) => {
             width: "20ch",
           },
         }}
+        classes={{
+          paper: "DropdownMenu",
+        }}
       >
         {options.map((option) => (
           <MenuItem key={option} onClick={handleClose}>

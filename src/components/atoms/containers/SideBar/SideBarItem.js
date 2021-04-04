@@ -11,7 +11,7 @@ import "./styles.css";
 import useStyles from "./utils/useStyles";
 
 const SideBarItem = (props) => {
-  const { item, onOpen } = props;
+  const { count = 10, item, onOpen } = props;
   const styles = useStyles();
 
   const handleItemClick = (event) => {
@@ -42,6 +42,7 @@ const SideBarItem = (props) => {
           classes={{ primary: styles.sideBarItemLabel }}
           primary={item.label}
         />
+        {count > 0 && <div className="SideBarItemBadge">{count}</div>}
       </ListItem>
     </Tooltip>
   );

@@ -4,12 +4,19 @@ import cx from "clsx";
 import { useSelector } from "react-redux";
 
 // components
-import { Button, Grow, IconButton, Typography } from "@material-ui/core";
 import {
-  FilterListRounded,
+  Button,
+  Fade,
+  Grow,
+  IconButton,
+  Typography,
+  useMediaQuery,
+} from "@material-ui/core";
+import {
   MoreVert,
   PersonAddRounded as PersonAddIcon,
 } from "@material-ui/icons";
+import { useTheme } from "@material-ui/core/styles";
 import { EmployeeSearchbar } from "~Modules";
 import ToolbarMenu from "./ToolbarMenu";
 import AlphaSorter from "./AlphaSorter";
@@ -19,16 +26,20 @@ import "./styles.css";
 import SelectedEmployeeActions from "./SelectedEmployeeActions";
 import LocationSortMenu from "./LocationSortMenu";
 import TableSortMenu from "./TableSortMenu";
+import { Filter } from "components/atoms/icons";
 
 const EmployeeToolbar = (props) => {
   const { className } = props;
+
+  const theme = useTheme();
+  const hidden = useMediaQuery(theme.breakpoints.down("sm"));
 
   const [
     numberOfEmployees,
     numberOfSelectedEmployees,
   ] = useSelector(({ employee }) => [
     employee.list.length,
-    employee.selected.length,
+    Object.keys(employee.selected).length,
   ]);
 
   const classes = cx("EmployeeToolbar", className);
@@ -39,19 +50,29 @@ const EmployeeToolbar = (props) => {
         <IconButton className={cx("Button", "IconButton", "BlackButton")}>
           <MoreVert />
         </IconButton>
-        <ToolbarMenu label="Abdul Aziz" icon={<FilterListRounded />} />
-        <LocationSortMenu />
-        <TableSortMenu />
-        <AlphaSorter />
+        <Fade in={!hidden} unmountOnExit>
+          <ToolbarMenu label="Abdul Aziz" icon={<Filter />} />
+        </Fade>
+        <Fade in={!hidden} unmountOnExit>
+          <LocationSortMenu />
+        </Fade>
+        <Fade in={!hidden} unmountOnExit>
+          <TableSortMenu />
+        </Fade>
+        <Fade in={!hidden} unmountOnExit>
+          <AlphaSorter />
+        </Fade>
         <EmployeeSearchbar className="mlAuto" />
       </div>
       <div className="lower-bar">
-        <SelectedEmployeeActions />
+        <Fade in={!hidden} unmountOnExit>
+          <SelectedEmployeeActions />
+        </Fade>
         <Typography color="textPrimary" className="EmployeeCount">
           Total contacts: {numberOfEmployees}
         </Typography>
         <Grow unmountOnExit in={numberOfSelectedEmployees > 0}>
-          <Typography color="error" className="EmployeeCount">
+          <Typography className="EmployeeCount">
             ({numberOfSelectedEmployees} selected)
           </Typography>
         </Grow>

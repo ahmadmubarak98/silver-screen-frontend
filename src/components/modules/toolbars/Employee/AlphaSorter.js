@@ -1,9 +1,14 @@
-import React, { useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
+import clsx from "clsx";
 
-import { IconButton } from "@material-ui/core";
+// components
+import { Button, ButtonGroup } from "@material-ui/core";
 import { SortByAlphaRounded } from "@material-ui/icons";
 import { makeStyles } from "@material-ui/core/styles";
-import clsx from "clsx";
+
+// redux
+import { useDispatch } from "react-redux";
+import { employeeActions } from "~Store";
 
 const useStyles = makeStyles((theme) => ({
   wrapper: {
@@ -33,10 +38,11 @@ const useStyles = makeStyles((theme) => ({
   letters: {
     display: "flex",
     alignItems: "center",
+    marginRight: 10,
   },
   letter: {
     fontSize: "14px",
-    marginRight: "8px",
+    padding: "8px 5px",
     color: "#868686",
     textTransform: "uppercase",
     cursor: "pointer",
@@ -44,6 +50,9 @@ const useStyles = makeStyles((theme) => ({
     "&:hover": {
       color: "black",
     },
+  },
+  activeLetter: {
+    color: "black",
   },
 }));
 
@@ -76,10 +85,50 @@ const alphabet = [
   "z",
 ];
 
-const AlphaSorter = () => {
+const AlphaSorter = (props) => {
   const styles = useStyles();
+  const dispatch = useDispatch();
+
   const [open, setOpen] = useState(false);
-  const handleToggle = () => setOpen(!open);
+  const [activeTab, setActiveTab] = useState("all");
+  const [selectedLetter, setSelectedLetter] = useState("");
+
+  // ----------------------------------------
+  // Event handlers
+  // ----------------------------------------
+
+  const handleOpen = useCallback(() => {
+    setOpen(true);
+  }, []);
+
+  const handleClose = useCallback(() => {
+    setOpen(false);
+    setSelectedLetter("");
+    dispatch(
+      employeeActions.filter({
+        filterBy: [],
+      })
+    );
+  }, [dispatch]);
+
+  const handleFilter = useCallback(
+    (event, letter) => {
+      setSelectedLetter(letter);
+      dispatch(
+        employeeActions.filter({
+          filterBy: [
+            ["name", (row) => row.name.startsWith(letter.toUpperCase())],
+          ],
+        })
+      );
+    },
+    [dispatch]
+  );
+
+  useEffect(() => {
+    if (activeTab === "all") handleClose();
+    else handleOpen();
+  }, [activeTab, handleOpen, handleClose]);
 
   // ----------------------------------------
   // Render
@@ -88,7 +137,14 @@ const AlphaSorter = () => {
   const renderLetters = () => (
     <div className={styles.letters}>
       {alphabet.map((letter) => (
-        <div key={letter} className={styles.letter}>
+        <div
+          key={letter}
+          onClick={(event) => handleFilter(event, letter)}
+          className={clsx(
+            styles.letter,
+            selectedLetter === letter && styles.activeLetter
+          )}
+        >
           {letter}
         </div>
       ))}
@@ -97,12 +153,33 @@ const AlphaSorter = () => {
 
   return (
     <div className={styles.wrapper}>
-      <IconButton
-        className={clsx(styles.toggler, { [styles.togglerOpen]: open })}
-        onClick={handleToggle}
-      >
-        <SortByAlphaRounded className={styles.togglerIcon} />
-      </IconButton>
+      <ButtonGroup disableElevation variant="contained" className="mrXs">
+        <Button
+          className={clsx(
+            "Button",
+            activeTab === "all" && "BlackButton",
+            "IconButton",
+            "mr0"
+          )}
+          onClick={() => setActiveTab("all")}
+        >
+          All
+        </Button>
+        <Button
+          className={clsx(
+            "Button",
+            activeTab === "az" && "BlackButton",
+            "IconButton"
+          )}
+          onClick={() => setActiveTab("az")}
+        >
+          <SortByAlphaRounded
+            className={styles.togglerIcon}
+            style={{ fontSize: 16 }}
+          />
+        </Button>
+      </ButtonGroup>
+
       {open && renderLetters()}
     </div>
   );

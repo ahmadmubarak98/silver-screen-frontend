@@ -5,21 +5,18 @@ import clsx from "clsx";
 // components
 import { Button, IconButton, Tooltip } from "@material-ui/core";
 import {
-  ArchiveRounded,
-  EmailRounded,
-  ForumRounded,
   PersonAddRounded as PersonAddIcon,
   PlaylistAddRounded,
-  VideocamRounded,
 } from "@material-ui/icons";
 import DeleteSelectedEmployees from "./DeleteSelectedEmployees";
 
 import "./styles.css";
+import { Archive, Chat, Mail, VideoCall } from "components/atoms/icons";
 
 const SelectedEmployeeActions = (props) => {
   const selectedEmployees = useSelector(({ employee }) => employee.selected);
 
-  const hasSelectedEmployees = selectedEmployees.length > 0;
+  const hasSelectedEmployees = Object.keys(selectedEmployees).length > 0;
 
   const blackButtonClasses = clsx("Button", "BlackButton");
   const blackIconButtonClasses = clsx(blackButtonClasses, "IconButton");
@@ -41,52 +38,60 @@ const SelectedEmployeeActions = (props) => {
         classes={{ tooltip: "NavBarItemTooltip" }}
         title="Add to List"
       >
-        <IconButton
-          disabled={!hasSelectedEmployees}
-          size="small"
-          className={blackIconButtonClasses}
-        >
-          <PlaylistAddRounded />
-        </IconButton>
+        <span className="mrXxs">
+          <IconButton
+            disabled={!hasSelectedEmployees}
+            size="small"
+            className={blackIconButtonClasses}
+          >
+            <PlaylistAddRounded />
+          </IconButton>
+        </span>
       </Tooltip>
       <Tooltip
         placement="bottom"
         classes={{ tooltip: "NavBarItemTooltip" }}
         title="Email"
       >
-        <IconButton
-          disabled={!hasSelectedEmployees}
-          size="small"
-          className={blackIconButtonClasses}
-        >
-          <EmailRounded />
-        </IconButton>
+        <span className="mrXxs">
+          <IconButton
+            disabled={!hasSelectedEmployees}
+            size="small"
+            className={blackIconButtonClasses}
+          >
+            <Mail />
+          </IconButton>
+        </span>
       </Tooltip>
       <Tooltip
         placement="bottom"
         classes={{ tooltip: "NavBarItemTooltip" }}
         title="Start Chat"
       >
-        <IconButton
-          disabled={!hasSelectedEmployees}
-          size="small"
-          className={blackIconButtonClasses}
-        >
-          <ForumRounded />
-        </IconButton>
+        <span className="mrXxs">
+          <IconButton
+            disabled={!hasSelectedEmployees}
+            size="small"
+            className={blackIconButtonClasses}
+          >
+            <Chat />
+          </IconButton>
+        </span>
       </Tooltip>
       <Tooltip
         placement="bottom"
         classes={{ tooltip: "NavBarItemTooltip" }}
         title="Video Call"
       >
-        <IconButton
-          disabled={!hasSelectedEmployees}
-          size="small"
-          className={blackIconButtonClasses}
-        >
-          <VideocamRounded />
-        </IconButton>
+        <span className="mrXxs">
+          <IconButton
+            disabled={!hasSelectedEmployees}
+            size="small"
+            className={blackIconButtonClasses}
+          >
+            <VideoCall />
+          </IconButton>
+        </span>
       </Tooltip>
       <DeleteSelectedEmployees selectedEmployees={selectedEmployees} />
       <Tooltip
@@ -94,13 +99,15 @@ const SelectedEmployeeActions = (props) => {
         classes={{ tooltip: "NavBarItemTooltip" }}
         title="Archive"
       >
-        <IconButton
-          disabled={!hasSelectedEmployees}
-          size="small"
-          className={clsx("Button", "IconButton")}
-        >
-          <ArchiveRounded />
-        </IconButton>
+        <span className="mrXxs">
+          <IconButton
+            disabled={!hasSelectedEmployees}
+            size="small"
+            className={clsx("Button", "IconButton")}
+          >
+            <Archive />
+          </IconButton>
+        </span>
       </Tooltip>
     </div>
   );

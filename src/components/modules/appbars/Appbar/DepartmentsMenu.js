@@ -6,9 +6,9 @@ import {
   Apartment,
   Group,
   Person,
-  FolderOpenRounded,
 } from "@material-ui/icons";
 import ToolbarMenu from "components/modules/toolbars/Employee/ToolbarMenu";
+import { Layers } from "components/atoms/icons";
 
 const DepartmentsMenu = () => {
   const items = [
@@ -155,9 +155,9 @@ const DepartmentsMenu = () => {
   return (
     <ToolbarMenu
       items={items}
-      label="Departments"
+      label="Company"
       className={clsx("AppBarMenuButton")}
-      icon={<FolderOpenRounded />}
+      icon={<Layers />}
     />
   );
 };

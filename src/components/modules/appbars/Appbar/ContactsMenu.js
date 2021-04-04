@@ -2,10 +2,11 @@ import React from "react";
 import clsx from "clsx";
 
 // components
-import { Apartment, ContactsRounded, Group, Person } from "@material-ui/icons";
+import { Apartment, Group, Person } from "@material-ui/icons";
 import ToolbarMenu from "components/modules/toolbars/Employee/ToolbarMenu";
 
 import { CONTACTS_ORGS, CONTACTS_EMPLOYEES, CONTACTS_PEOPLE } from "~Routes";
+import { Contacts } from "components/atoms/icons";
 
 const ContactsMenu = () => {
   const items = [
@@ -31,7 +32,7 @@ const ContactsMenu = () => {
       items={items}
       label="Contacts"
       className={clsx("AppBarMenuButton", "active")}
-      icon={<ContactsRounded className="icon" />}
+      icon={<Contacts className="icon" />}
     />
   );
 };

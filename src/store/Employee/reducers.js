@@ -18,35 +18,27 @@ const initialState = {
   filterBy: [],
 
   // selection
-  selected: [],
+  selected: {},
 };
 
 // ----------------------------------------
 // Helpers
 // ----------------------------------------
 
+// const addOrRemoveFilter = (state, filterBy) => {};
+
 // allows for granular control of selection criteria
 const isMatchingQuery = (account, query, filterBy) => {
   return (
     string.matches(account.name, query) &&
-    filterBy.every(([property, value]) => account[property] === value)
+    filterBy.every(([property, validator]) => {
+      if (lang.isFunction(validator)) return validator(account);
+      return account[property] === validator;
+    })
   );
 };
 
-// populates employee dictionary for faster reads
-// const computeDictionary = (employees = []) => {
-//   const employeesById = employees.reduce((result, employee) => {
-//     return {
-//       ...result,
-//       [employee.uuid]: employee,
-//     };
-//   }, {});
-
-//   return { employeesById };
-// };
-
 // sorting helpers
-
 const descendingComparator = (a, b, orderBy) => {
   if (b[orderBy] < a[orderBy]) return -1;
   if (b[orderBy] > a[orderBy]) return 1;
@@ -73,13 +65,10 @@ const stableSort = (array, comparator) => {
 // ----------------------------------------
 
 const setEmployees = (state, { employees = [] }) => {
-  // const { employeesById } = computeDictionary(employees);
-
   return {
     ...state,
     query: "",
     employees,
-    // employeesById,
     list: stableSort(employees, getComparator(state.order, state.orderBy)),
   };
 };
@@ -94,7 +83,11 @@ const setSelectedEmployees = (state, { selected }) => ({
 });
 
 const selectAllEmployees = (state) => {
-  const newSelected = state.employees.map((n) => n.uuid);
+  const newSelected = state.employees.reduce(
+    (acc, employee) => ({ ...acc, [employee.uuid]: true }),
+    {}
+  );
+
   return {
     ...state,
     selected: newSelected,
@@ -103,7 +96,7 @@ const selectAllEmployees = (state) => {
 
 const clearEmployeeSelection = (state) => ({
   ...state,
-  selected: [],
+  selected: {},
 });
 
 // ----------------------------------------
@@ -121,6 +114,7 @@ const filterEmployees = (
   state,
   { query = state.query, filterBy = state.filterBy }
 ) => {
+  // const updatedFilters = addOrRemoveFilter(state, filterBy)
   const filtered = state.employees.filter((account) =>
     isMatchingQuery(account, query, filterBy)
   );
@@ -132,7 +126,7 @@ const filterEmployees = (
   return {
     ...state,
     query,
-    filterBy,
+    filterBy: filterBy,
     list: sorted,
   };
 };

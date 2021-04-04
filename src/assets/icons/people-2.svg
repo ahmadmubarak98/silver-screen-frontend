@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18.235" viewBox="0 0 18 18.235">
+  <g id="Group_150" data-name="Group 150" transform="translate(319 -59.765)">
+    <path id="Path_78" data-name="Path 78" d="M-104.37,61.855A1.852,1.852,0,0,0-106.185,60,1.852,1.852,0,0,0-108,61.855a1.817,1.817,0,0,0,1.815,1.815A1.817,1.817,0,0,0-104.37,61.855Z" transform="translate(-203.815 -0.235)"/>
+    <path id="Path_79" data-name="Path 79" d="M-132.727,153.637A2.64,2.64,0,0,0-135.363,151,2.64,2.64,0,0,0-138,153.637v.527h5.273Z" transform="translate(-174.637 -87.801)"/>
+    <circle id="Ellipse_30" data-name="Ellipse 30" cx="2" cy="2" r="2" transform="translate(-306 66)"/>
+    <path id="Path_80" data-name="Path 80" d="M44.637,331A2.64,2.64,0,0,0,42,333.637v.527h5.309v-.527A2.67,2.67,0,0,0,44.637,331Z" transform="translate(-348.309 -261.473)"/>
+    <circle id="Ellipse_31" data-name="Ellipse 31" cx="2" cy="2" r="2" transform="translate(-318 66)"/>
+    <path id="Path_81" data-name="Path 81" d="M-313.691,333.637A2.64,2.64,0,0,0-316.328,331,2.67,2.67,0,0,0-319,333.637v.527h5.309Z" transform="translate(0 -261.473)"/>
+    <circle id="Ellipse_32" data-name="Ellipse 32" cx="2" cy="2" r="2" transform="translate(-312 71)"/>
+    <path id="Path_82" data-name="Path 82" d="M-132.727,483.637A2.64,2.64,0,0,0-135.363,481,2.64,2.64,0,0,0-138,483.637v.563h5.273Z" transform="translate(-174.637 -406.199)"/>
+    <path id="Path_83" data-name="Path 83" d="M-256.945,123.637a1.584,1.584,0,0,1,1.582-1.582h.527V121h-.527A2.64,2.64,0,0,0-258,123.637v.527h1.055Z" transform="translate(-58.855 -58.855)"/>
+    <path id="Path_84" data-name="Path 84" d="M44.109,123.637v.527h1.055v-.527A2.64,2.64,0,0,0,42.527,121H42v1.055h.527A1.584,1.584,0,0,1,44.109,123.637Z" transform="translate(-348.309 -58.855)"/>
+    <path id="Path_85" data-name="Path 85" d="M-258,451v.527a2.64,2.64,0,0,0,2.637,2.637h.527v-1.055h-.527a1.584,1.584,0,0,1-1.582-1.582V451Z" transform="translate(-58.855 -377.254)"/>
+    <path id="Path_86" data-name="Path 86" d="M45.164,451.527V451H44.109v.527a1.584,1.584,0,0,1-1.582,1.582H42v1.055h.527A2.64,2.64,0,0,0,45.164,451.527Z" transform="translate(-348.309 -377.254)"/>
+  </g>
+</svg>

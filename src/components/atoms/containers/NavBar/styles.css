@@ -24,9 +24,18 @@
   margin-bottom: 0;
 }
 
-.NavBarItem:hover,
+.NavBarItem:hover {
+  background-color: var(--mid-grey-2);
+  color: var(--white);
+}
+
 .ActiveNavBarItem {
-  background-color: var(--light-grey);
+  background: var(--light-grey);
+  color: var(--black);
+}
+
+.ActiveNavBarItem:hover {
+  background: var(--white);
   color: var(--black);
 }
 

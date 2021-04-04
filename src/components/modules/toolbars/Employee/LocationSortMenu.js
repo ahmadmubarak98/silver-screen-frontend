@@ -133,6 +133,9 @@ const LocationSortMenu = (props) => {
           horizontal: "left",
         }}
         variant="menu"
+        classes={{
+          paper: "DropdownMenu",
+        }}
       >
         <div className="LocationSortOption">
           <CountrySelect
@@ -145,7 +148,7 @@ const LocationSortMenu = (props) => {
             onKeyDown={preventEventBubblingOnTab}
           />
         </div>
-        <Collapse unmountOnExit in={country.label}>
+        <Collapse unmountOnExit in={!!country.label}>
           <div className="LocationSortOption">
             <CitySelect
               value={city}

@@ -33,3 +33,18 @@
 
 /*--------------
 ---------------*/
+
+.SideBarItemBadge {
+  background: #65acff;
+  color: white;
+  padding: 5px;
+  border-radius: 50%;
+  font-size: 10px;
+  margin: 0 5px 0 2px;
+  font-weight: bold;
+}
+
+.LargeSideBarItemBadge {
+  padding: 6px 4px;
+  font-size: 8px;
+}

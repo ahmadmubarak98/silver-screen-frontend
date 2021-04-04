@@ -2,17 +2,21 @@ import React, { cloneElement } from "react";
 import clsx from "clsx";
 
 // components
-import { HomeRounded, LocalMall, PublicRounded } from "@material-ui/icons";
+import { IconButton} from "@material-ui/core";
+import { SearchRounded } from "@material-ui/icons";
+import { Home } from '~Atoms/icons';
+import { NotificationMenu, UserProfileMenu } from "~Modules";
 import ContactsMenu from "./ContactsMenu";
 import DepartmentsMenu from "./DepartmentsMenu";
-import { NotificationMenu, UserProfileMenu } from "~Modules";
+
 
 import "./styles.css";
+import { Globe, Projects } from "components/atoms/icons";
 
 const items = [
   {
     label: "Dashboard",
-    icon: <HomeRounded className="AppbarIcon" />,
+    icon: <Home className="AppbarIcon"  />,
   },
   {
     component: <ContactsMenu />,
@@ -22,12 +26,12 @@ const items = [
   },
   {
     label: "Projects",
-    icon: <LocalMall className="AppbarIcon" />,
+    icon: <Projects className="AppbarIcon" />,
   },
 
   {
     label: "Website",
-    icon: <PublicRounded className="AppbarIcon" />,
+    icon: <Globe className="AppbarIcon" />,
     menu: true,
   },
 ];
@@ -63,6 +67,9 @@ const Appbar = (props) => {
         {items.map(renderItem)}
       </div>
 
+      <IconButton className='AppBarSearch'>
+        <SearchRounded />
+      </IconButton>
       <div className={clsx("AppbarWrapper", "BlackAppbarWrapper")}>
         <NotificationMenu />
         <UserProfileMenu />

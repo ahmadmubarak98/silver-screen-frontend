@@ -1,0 +1,61 @@
+.TableWrapper {
+  position: relative;
+  height: 100%;
+}
+
+.TableContent {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+/*--------------
+  TableSettingsMenu
+---------------*/
+
+.TableSettingsTitle {
+  padding: 0 16px 10px;
+  border-bottom: 1px solid var(--light-grey);
+}
+
+.TableSettingsList {
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.TableSettingsListTitle {
+  background: var(--light-grey);
+  padding: 5px 16px;
+  width: 100%;
+  display: block;
+}
+
+.TableColumnOptionIcon {
+  min-width: 28px;
+}
+
+.TableSettingsActions {
+  padding: 8px 8px 0;
+  display: flex;
+}
+
+/*--------------
+  Button Cell
+---------------*/
+
+.ButtonCell .rs-table-cell-content {
+  padding: 0;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+}
+
+/*--------------
+Invisible Column
+---------------*/
+
+.InvisibleColumn {
+  border-width: 0 !important;
+}

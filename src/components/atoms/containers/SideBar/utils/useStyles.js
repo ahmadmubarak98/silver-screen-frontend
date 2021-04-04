@@ -32,14 +32,14 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   drawerIcon: {
-    transform: "rotate(0)",
+    transform: "rotate(180deg)",
     transition: theme.transitions.create("transform", {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.enteringScreen,
     }),
   },
   drawerIconOpen: {
-    transform: "rotate(180deg)",
+    transform: "rotate(0)",
     transition: theme.transitions.create("transform", {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
@@ -71,10 +71,10 @@ const useStyles = makeStyles((theme) => ({
   },
   sideBarItem: {
     borderRadius: "8px",
-    margin: "10px 10px 0",
-    width: "calc(100% - 20px)",
-    paddingLeft: "12px",
-    paddingRight: "12px",
+    margin: "10px 4px 0",
+    width: 'calc(100% - 8px)',
+    paddingLeft: "8px",
+    paddingRight: "8px",
     opacity: "0.5",
 
     "&:hover": {
@@ -93,7 +93,7 @@ const useStyles = makeStyles((theme) => ({
     fontSize: "18px",
   },
   sideBarItemLabel: {
-    fontSize: "12px",
+    fontSize: "11px",
     whiteSpace: "nowrap",
     overflow: "hidden",
     textOverflow: "ellipsis",
@@ -101,7 +101,7 @@ const useStyles = makeStyles((theme) => ({
   nestedList: {
     backgroundColor: "white",
     borderRadius: "0 0 8px 8px",
-    margin: "0 10px 5px",
+    margin: "0 4px 5px",
 
     "& $sideBarItem": {
       margin: "0",

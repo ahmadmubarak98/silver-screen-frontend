@@ -93,6 +93,10 @@ SelectedEmployeeActions
   background-color: var(--light-grey);
 }
 
+.Button.Mui-disabled {
+  background-color: #f5f5f5;
+}
+
 .Button:last-child {
   margin-right: 0;
 }
@@ -100,6 +104,12 @@ SelectedEmployeeActions
 .BlackButton {
   background-color: var(--black);
   color: var(--white);
+}
+
+
+.BlackButton.Mui-disabled {
+  color: #999;
+  background-color: #1F1F1F;
 }
 
 .BlackButton:hover {

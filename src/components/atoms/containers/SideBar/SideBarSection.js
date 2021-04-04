@@ -17,7 +17,7 @@ import useStyles from "./utils/useStyles";
 import "./styles.css";
 
 const SideBarSection = (props) => {
-  const { onOpen, item, open } = props;
+  const { count = 100, onOpen, item, open } = props;
   const styles = useStyles();
   const [subSectionOpen, setSubSectionOpen] = useState(false);
 
@@ -53,6 +53,16 @@ const SideBarSection = (props) => {
             classes={{ primary: styles.sideBarItemLabel }}
             primary={item.label}
           />
+          {count > 0 && (
+            <div
+              className={clsx(
+                "SideBarItemBadge",
+                count > 99 && "LargeSideBarItemBadge"
+              )}
+            >
+              {count}
+            </div>
+          )}
           <ExpandIcon className={groupIconClasses} />
         </ListItem>
       </Tooltip>

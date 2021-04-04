@@ -82,3 +82,24 @@ DepartmentsMenuOption
   padding: 4px 15px;
   font-size: 12px;
 }
+
+/*--------------
+   AppBarSearch
+---------------*/
+
+.AppBarSearch {
+  color: white;
+  background-color: #3B3B3B;
+  margin-right: 10px;
+  display: flex;
+  align-items: center;
+  padding: 6px 8px;
+  font-size: 12px;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+}
+
+.AppBarSearch:hover {
+  background-color: var(--mid-grey-2);
+}

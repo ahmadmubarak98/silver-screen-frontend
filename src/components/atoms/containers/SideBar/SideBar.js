@@ -3,16 +3,15 @@ import clsx from "clsx";
 
 // components
 import { Drawer, IconButton, Typography, Fade } from "@material-ui/core";
-import {
-  ChevronRight as ChevronIcon,
-  FilterListRounded as FilterListIcon,
-  PlaylistAddRounded as PlaylistAddIcon,
-} from "@material-ui/icons";
+import { PlaylistAddRounded as PlaylistAddIcon } from "@material-ui/icons";
+import { ArrowLeftCircle } from "~Atoms/icons";
+import { AddingList } from "~Atoms";
 import SideBarSection from "./SideBarSection";
 import SideBarItem from "./SideBarItem";
 
 import useStyles from "./utils/useStyles";
 import "./styles.css";
+import { Filter } from "components/atoms/icons";
 
 const SideBar = (props) => {
   const { className, items = [], ...rest } = props;
@@ -41,10 +40,18 @@ const SideBar = (props) => {
             open={open}
             item={item}
             onOpen={setOpen}
+            count={!open ? 0 : undefined}
           />
         );
 
-      return <SideBarItem key={item.label} item={item} onOpen={setOpen} />;
+      return (
+        <SideBarItem
+          key={item.label}
+          item={item}
+          onOpen={setOpen}
+          count={!open ? 0 : undefined}
+        />
+      );
     },
     [open]
   );
@@ -74,7 +81,7 @@ const SideBar = (props) => {
           unmountOnExit
         >
           <Typography className="SideBarTitle">
-            <FilterListIcon className="SideBarTitleIcon" />
+            <Filter className="SideBarTitleIcon" />
             Filter by
           </Typography>
         </Fade>
@@ -82,20 +89,20 @@ const SideBar = (props) => {
           className={clsx("mlAuto", !open && "mrAuto")}
           onClick={handleDrawerToggle}
         >
-          <ChevronIcon className={drawerIconClasses} />
+          <ArrowLeftCircle className={drawerIconClasses} />
         </IconButton>
       </div>
       <div className="ScrollableContainer">{items.map(renderItem)}</div>
       <div className={styles.sectionHeader}>
         <Fade in={!!open} unmountOnExit>
-          <Typography className="SideBarTitle">Favourite List</Typography>
+          <Typography className="SideBarTitle">Favorite List</Typography>
         </Fade>
         <IconButton className={clsx("mlAuto", !open && "mrAuto")} edge="end">
-          <PlaylistAddIcon />
+          <PlaylistAddIcon style={{ color: "black" }} />
         </IconButton>
       </div>
       <Fade in={!!open} unmountOnExit>
-        <div className={styles.addPlaceholder}>Add your list here</div>
+        <AddingList />
       </Fade>
     </Drawer>
   );

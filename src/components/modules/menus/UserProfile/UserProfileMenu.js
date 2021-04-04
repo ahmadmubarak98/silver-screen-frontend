@@ -6,7 +6,21 @@ import { useSelector } from "react-redux";
 import { Avatar, Typography } from "@material-ui/core";
 import ToolbarMenu from "components/modules/toolbars/Employee/ToolbarMenu";
 
+import avatar1 from "../../../../assets/img/1.jpg";
+
 import "./styles.css";
+import { ExitToApp, Settings } from "@material-ui/icons";
+
+const items = [
+  {
+    label: "Account Settings",
+    icon: <Settings className="mrSm" />,
+  },
+  {
+    label: "Logout",
+    icon: <ExitToApp className="mrSm" />,
+  },
+];
 
 const UserProfileMenu = (props) => {
   const { className } = props;
@@ -18,13 +32,13 @@ const UserProfileMenu = (props) => {
   return (
     <ToolbarMenu
       className={classes}
-      items={[]}
+      items={items}
       label={
         <>
           <div className={clsx("UserProfileStatus", user.status)}>
             <Avatar
               alt={user.name}
-              src={user.imgUrl}
+              src={user.imgUrl || avatar1}
               className="UserProfileMenuAvatar"
             />
           </div>

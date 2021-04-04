@@ -1,0 +1,12 @@
+export { Archive } from "./Archive";
+export { ArrowLeftCircle } from "./ArrowLeftCircle";
+export { Chat } from "./Chat";
+export { Contacts } from "./Contacts";
+export { Filter } from "./Filter";
+export { Globe } from "./Globe";
+export { Home } from "./Home";
+export { Layers } from "./Layers";
+export { Mail } from "./Mail";
+export { Projects } from "./Projects";
+export { Trash } from "./Trash";
+export { VideoCall } from "./VideoCall";

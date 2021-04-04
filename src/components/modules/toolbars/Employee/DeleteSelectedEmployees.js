@@ -13,6 +13,7 @@ import {
 } from "@material-ui/core";
 import { DeleteRounded } from "@material-ui/icons";
 import { makeStyles } from "@material-ui/core/styles";
+import { Trash } from "components/atoms/icons";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -31,7 +32,7 @@ const DeleteSelectedEmployees = (props) => {
   const classes = useStyles();
   const [open, setOpen] = useState(false);
 
-  const hasSelectedEmployees = selectedEmployees.length > 0;
+  const hasSelectedEmployees = Object.keys(selectedEmployees).length > 0;
 
   // ----------------------------------------
   // Event handlers
@@ -63,8 +64,9 @@ const DeleteSelectedEmployees = (props) => {
       <DialogTitle id="confirmation-dialog-title">Delete</DialogTitle>
       <DialogContent dividers>
         <Typography>
-          Are you sure you want to delete {selectedEmployees.length} contact
-          {selectedEmployees.length > 1 ? "s" : ""}?
+          Are you sure you want to delete{" "}
+          {Object.keys(selectedEmployees).length} contact
+          {Object.keys(selectedEmployees).length > 1 ? "s" : ""}?
         </Typography>
       </DialogContent>
       <DialogActions>
@@ -91,14 +93,16 @@ const DeleteSelectedEmployees = (props) => {
         classes={{ tooltip: "NavBarItemTooltip" }}
         title="Delete"
       >
-        <IconButton
-          disabled={!hasSelectedEmployees}
-          size="small"
-          className={clsx("Button", "IconButton")}
-          onClick={handleOpen}
-        >
-          <DeleteRounded />
-        </IconButton>
+        <span className='mrXxs'>
+          <IconButton
+            disabled={!hasSelectedEmployees}
+            size="small"
+            className={clsx("Button", "IconButton")}
+            onClick={handleOpen}
+          >
+            <Trash />
+          </IconButton>
+        </span>
       </Tooltip>
       {renderDialog()}
     </>

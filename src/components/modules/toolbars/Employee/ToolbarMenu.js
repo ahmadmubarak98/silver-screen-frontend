@@ -1,4 +1,4 @@
-import React, { cloneElement, isValidElement } from "react";
+import React, { cloneElement, isValidElement, useState } from "react";
 import clsx from "clsx";
 
 import { Button, Menu, MenuItem } from "@material-ui/core";
@@ -12,6 +12,11 @@ const useStyles = makeStyles((theme) => ({
     padding: "6px 14px",
     marginRight: "10px",
     textTransform: "initial",
+
+
+    whiteSpace: "nowrap",
+    overflow: "hidden",
+    textOverflow: "ellipsis",
   },
 }));
 
@@ -36,9 +41,10 @@ const ToolbarMenu = (props) => {
     items = defaultItems,
     label,
     keepMounted = false,
+    ...rest
   } = props;
 
-  const [anchorEl, setAnchorEl] = React.useState(null);
+  const [anchorEl, setAnchorEl] = useState(null);
   const styles = useStyles();
 
   const handleClick = (event) => {
@@ -78,15 +84,22 @@ const ToolbarMenu = (props) => {
           open={Boolean(anchorEl)}
           onClose={handleClose}
           getContentAnchorEl={null}
+          variant="menu"
+          classes={{
+            paper: "DropdownMenu",
+          }}
+          PaperProps={{
+            elevation: 2,
+          }}
           anchorOrigin={{
-            vertical: 'bottom',
-            horizontal: 'center',
+            vertical: "bottom",
+            horizontal: "left",
           }}
           transformOrigin={{
-            vertical: 'top',
-            horizontal: 'center',
+            vertical: "top",
+            horizontal: "left",
           }}
-          variant="menu"
+          {...rest}
         >
           {items.map((item, index) => {
             if (isValidElement(item))

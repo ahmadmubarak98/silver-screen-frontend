@@ -1,3 +1,28 @@
+.AvatarTableCell .rs-table-cell-content {
+  padding: 8px 10px;
+}
+
+.AvatarCell {
+  display: flex;
+  align-items: center;
+}
+
+.AvatarCell > .Avatar {
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+}
+
+.AvatarCell > .Content {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+/*-----------------------------*/
+/*-----------------------------*/
+/*-----------------------------*/
+
 .EmployeeTableContainer {
   flex-grow: 1;
   position: relative;
@@ -45,4 +70,3 @@
   height: 30px;
   margin-right: 10px;
 }
-

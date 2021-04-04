@@ -31,7 +31,7 @@ const TableViewToggler = (props) => {
     <ToolbarMenu
       icon={getIcon()}
       className="mlAuto"
-      label="View"
+      label={`${view} view`}
       items={tableViewOptions}
     />
   );

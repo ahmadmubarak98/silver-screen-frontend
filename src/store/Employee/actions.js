@@ -1,6 +1,6 @@
 import * as actionTypes from "./types";
 
-export const set = (employees) => ({
+const set = (employees) => ({
   type: actionTypes.SET_EMPLOYEES,
   payload: { employees },
 });
@@ -9,16 +9,16 @@ export const set = (employees) => ({
 // Selection
 // ----------------------------------------
 
-export const setSelected = (selected) => ({
+const setSelected = (selected) => ({
   type: actionTypes.SET_SELECTED_EMPLOYEES,
   payload: { selected },
 });
 
-export const selectAll = () => ({
+const selectAll = () => ({
   type: actionTypes.SELECT_ALL_EMPLOYEES,
 });
 
-export const clearSelection = () => ({
+const clearSelection = () => ({
   type: actionTypes.CLEAR_EMPLOYEE_SELECTION,
 });
 
@@ -26,12 +26,21 @@ export const clearSelection = () => ({
 // Sort and filter
 // ----------------------------------------
 
-export const sort = ({ order, orderBy }) => ({
+const sort = ({ order, orderBy }) => ({
   type: actionTypes.SORT_EMPLOYEES,
   payload: { order, orderBy },
 });
 
-export const filter = ({ query, filterBy }) => ({
+const filter = ({ query, filterBy }) => ({
   type: actionTypes.FILTER_EMPLOYEES,
   payload: { query, filterBy },
 });
+
+export const employeeActions = {
+  clearSelection,
+  filter,
+  selectAll,
+  set,
+  setSelected,
+  sort,
+};
